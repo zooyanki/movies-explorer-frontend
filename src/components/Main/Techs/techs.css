@@ -1,0 +1,13 @@
+.techs {
+    display: flex;
+    margin: 0 auto;
+    background: rgb(39,39,39,1);
+    height: 625px;
+    width: 100%
+}
+
+@import url(./__block/techs__block.css);
+@import url(./__header/techs__header.css);
+@import url(./__text/techs__text.css);
+@import url(./__stack/techs__stack.css);
+@import url(./__stacks/techs__stacks.css);

@@ -1,0 +1,15 @@
+.aboutproject {
+    display: flex;
+    flex-direction: column;
+    height: 608px;
+}
+
+@import url(./__header/aboutproject__header.css);
+@import url(./__underline/aboutproject__underline.css);
+@import url(./__discription/aboutproject__discription.css);
+@import url(./__dis-header/aboutproject__dis-header.css);
+@import url(./__text/aboutproject__text.css);
+@import url(./__time/aboutproject__time.css);
+@import url(./__weeks/aboutproject__weeks.css);
+@import url(./__weeks-text/aboutproject__weeks-text.css);
+@import url(./__label/aboutproject__label.css);

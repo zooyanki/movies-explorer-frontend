@@ -1,0 +1,9 @@
+.techs__text {
+    margin: 26px auto 0;
+    width: 460px;
+    font-size: 14px;
+    line-height: 1.43;
+    text-align: center;
+    letter-spacing: -0.04em;
+    align-self: center;
+}

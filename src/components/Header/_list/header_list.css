@@ -1,0 +1,5 @@
+.header_list {
+    display: flex;
+    height: 74px;
+    background-color: rgb(32,32,32,1);
+}

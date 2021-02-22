@@ -1,0 +1,10 @@
+.portfolio {
+    display: flex;
+    flex-direction: column;
+    margin: 100px 0 125px 0;
+}
+
+@import url(./__header/portfolio__header.css);
+@import url(./__link/portfolio__link.css);
+@import url(./__logo/portfolio__logo.css);
+@import url(./__text/portfolio__text.css);

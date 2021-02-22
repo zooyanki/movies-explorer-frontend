@@ -1,0 +1,16 @@
+.moviescard {
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    width: 360px;
+    height: 319px;
+    background: rgb(34,34,34,1);
+}
+
+@import url(./__header/moviescard__header.css);
+@import url(./__name/moviescard__name.css);
+@import url(./__time/moviescard__time.css);
+@import url(./__pic/moviescard__pic.css);
+@import url(./__button/moviescard__button.css);

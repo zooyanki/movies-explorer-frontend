@@ -1,0 +1,18 @@
+.header__signin {
+    border-radius: 3px;
+    background-color: rgb(61,220,132,1);
+    width: 76px;
+    height: 32px;
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+    color: black;
+    text-align: center;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 32px;
+}
+
+.header__signin:hover {
+    background-color: rgb(61,220,132,0.8);
+}

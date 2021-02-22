@@ -1,0 +1,13 @@
+.moviescard__button_delete {
+    background-image: url(../../../../images/moviescard_icon_delete.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    font-size: 0px;
+}
+
+.moviescard__button_delete:hover {
+    background-image: url(../../../../images/moviescard_icon_delete.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    font-size: 0px;
+}

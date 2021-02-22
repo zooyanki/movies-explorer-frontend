@@ -1,0 +1,9 @@
+.searchform__shortblock {
+    margin-left: 30px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 226px;
+    height: 40px;
+    border-left: 1px solid rgb(66,66,66,1);
+}

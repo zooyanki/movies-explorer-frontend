@@ -1,0 +1,18 @@
+.profile__button {
+    margin: 220px 0 0 0;
+    border: none;
+    font-size: 13px;
+    line-height: 1.23;
+    background: none;
+    color: white;
+    cursor: pointer;
+}
+
+.profile__button:hover {
+    opacity: 0.8;
+}
+
+.profile__button:last-child {
+    color: rgb(238,52,101,1);
+    margin: 16px 0 0 0;
+}

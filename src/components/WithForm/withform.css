@@ -1,0 +1,16 @@
+.withform {
+    margin: 70px auto 70px;
+    width: 396px;
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+}
+
+@import url(../WithForm/__logo/withform__logo.css);
+@import url(../WithForm/__header/withform__header.css);
+@import url(../WithForm/__text/withform__text.css);
+@import url(../WithForm/__input/withform__input.css);
+@import url(../WithForm/__validation/withform__validation.css);
+@import url(../WithForm/__button/withform__button.css);
+@import url(../WithForm/__text-reg/withform__text-reg.css);
+@import url(../WithForm/__link/withform__link.css);

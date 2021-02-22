@@ -1,0 +1,11 @@
+.aboutme {
+    display: flex;
+    flex-direction: column;
+}
+
+@import url(./__info/aboutme__info.css);
+@import url(./__name/aboutme__name.css);
+@import url(./__status/aboutme__status.css);
+@import url(./__aboutme/aboutme__aboutme.css);
+@import url(./__photo/aboutme__photo.css);
+@import url(./__link/aboutme__link.css);

@@ -1,0 +1,12 @@
+.promo {
+    background-color:  #073042;
+    width: 100%;
+    height: 574px;
+}
+
+@import url(./__block/promo__block.css);
+@import url(./__button/promo__button.css);
+@import url(./__content/promo__content.css);
+@import url(./__header/promo__header.css);
+@import url(./__image/promo__image.css);
+@import url(./__text/promo__text.css);

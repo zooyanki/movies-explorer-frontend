@@ -1,0 +1,16 @@
+.moviescard__button {
+    margin: 0 0 18px 0;
+    background: rgb(49,49,49,1);
+    border-radius: 30px;
+    width: 100px;
+    height: 29px;
+    border: none;
+    font-size: 12px;
+    line-height: 11px;
+    color: white;
+    cursor: pointer;
+}
+
+.moviescard__button:hover {
+    background: rgb(49,49,49,0.7);
+}

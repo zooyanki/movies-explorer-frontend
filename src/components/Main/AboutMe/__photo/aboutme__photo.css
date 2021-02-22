@@ -1,0 +1,8 @@
+.aboutme__photo {
+    width: 327px;
+    height: 327px;
+    margin: 0;
+    grid-row: 1 / 5;
+    grid-column: 2;
+    justify-self: flex-end;
+}

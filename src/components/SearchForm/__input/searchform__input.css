@@ -1,0 +1,9 @@
+.searchform__input {
+    width: 740px;
+    background:  rgb(47,47,47,1);
+    border: none;
+    font-size: 18px;
+    line-height: 1.11;
+    color: #8B8B8B;
+    margin-right: 20px;
+}

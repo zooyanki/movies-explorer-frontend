@@ -1,0 +1,11 @@
+.techs__stack {
+    margin: 0;
+    width: 90px;
+    height: 60px;
+    border-radius: 6px;
+    background: rgb(48,48,48,1);
+    font-size: 14px;
+    line-height: 60px;
+    text-align: center;
+    letter-spacing: -0.04em;
+}

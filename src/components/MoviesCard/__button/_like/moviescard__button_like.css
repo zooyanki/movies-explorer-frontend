@@ -1,0 +1,17 @@
+.moviescard__button_like {
+    background: rgb(238,52,101,1);
+    background-image: url(../../../../images/moviescard_icon_like.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    color: white;
+    font-size: 0;
+}
+
+.moviescard__button_like:hover {
+    background: rgb(238,52,101,0.8);
+    background-image: url(../../../../images/moviescard_icon_like.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    color: white;
+    font-size: 0;
+}

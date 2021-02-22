@@ -1,0 +1,7 @@
+.header__link-block {
+    margin: 0 0 0 44px;
+    width: 212px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}

@@ -1,0 +1,6 @@
+.main {
+    margin: 0;
+    position: relative;
+}
+
+@import url(./Promo/promo.css);

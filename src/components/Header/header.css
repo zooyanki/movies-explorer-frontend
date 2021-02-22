@@ -1,0 +1,20 @@
+.header {
+    display: flex;
+    background-color: #073042;
+    height: 74px;
+}
+
+@import url(./__block/header__block.css);
+@import url(./__leftside/header__leftside.css);
+@import url(./__logo/header__logo.css);
+@import url(./__rightside/header__rightside.css);
+@import url(./__signin/header__signin.css);
+@import url(./__signup/header__signup.css);
+@import url(./__link/header__link.css);
+@import url(./__link-block/header__link-block.css);
+@import url(./__account-block/header__account-block.css);
+@import url(./__account-image/header__account-image.css);
+
+/*Модификатор*/
+@import url(./__rightside/_auth/header__rightside_auth.css);
+@import url(./_list/header_list.css);
