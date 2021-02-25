@@ -3,7 +3,7 @@ import MoviesCard from '../MoviesCard/MoviesCard';
 
 function MoviesCardList(props) {
     return (
-        <div className="block-width">
+        <div className="block-width_768">
             <div className="moviescardlist">
                 <MoviesCard buttonModificator={props.buttonModificator} />
                 <MoviesCard/>

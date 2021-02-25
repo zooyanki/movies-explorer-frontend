@@ -1,5 +1,5 @@
 .withform__button {
-    margin: 128px 0 0 0;
+    margin: auto 0 0 0;
     background: rgb(66,133,244,1);
     border-radius: 3px;
     width: 100%;
@@ -14,4 +14,10 @@
 
 .withform__button:hover {
     background: rgb(66,133,244,0.8);
+}
+
+@media screen and (min-width: 320px) and (max-width: 767px) {
+    .withform__button{
+        font-size: 12px;
+    }
 }

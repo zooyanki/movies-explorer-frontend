@@ -1,0 +1,26 @@
+.aboutme__aboutme {
+    width: 660px;
+    margin: 0;
+    font-size: 14px;
+    line-height: 1.57;
+    grid-row: 3;
+    grid-column: 1;
+}
+
+@media screen and (min-width: 768px) and (max-width: 1279px) {
+    .aboutme__aboutme {
+        width: 364px;
+        font-size: 12px;
+        line-height: 1.5;
+    }
+}
+
+@media screen and (min-width: 320px) and (max-width: 767px) {
+    .aboutme__aboutme {
+        margin: 20px 0 0 0;
+        width: 292px;
+        text-align: left;
+        font-size: 11px;
+        line-height: 1.5;
+    }
+}

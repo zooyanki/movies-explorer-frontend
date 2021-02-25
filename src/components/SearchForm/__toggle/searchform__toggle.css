@@ -5,3 +5,9 @@
     margin-right: 15px;
     cursor: pointer;
 }
+
+@media screen and (min-width: 320px) and (max-width: 767px) {
+    .searchform__toggle{
+        margin: 0 0 0 72px;
+    }
+}

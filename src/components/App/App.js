@@ -10,7 +10,6 @@ import SearchForm from '../SearchForm/SearchForm';
 import SavedMovies from '../SavedMovies/SavedMovies';
 import Login from '../Login/Login';
 import Register from '../Register/Register';
-import WithForm from '../WithForm/WithForm';
 import Profile from '../Profile/Profile';
 import Error from '../Error/Error';
 
@@ -19,6 +18,7 @@ function App() {
 
     const [headerOff, setHeaderOff] = useState();
     const [footerOff, setFooterOff] = useState();
+    const [navigationMenu, setNavigationMenu] = useState(false);
 
     useEffect(()=> {
         if (location.pathname === '/signin') {
@@ -36,10 +36,19 @@ function App() {
         }
     })
 
+    
+    const openNavigationMenu = () => {
+        setNavigationMenu(true);
+    }
+
+    const close = () => {
+        setNavigationMenu(false)
+    }
+
     return (
         <div className="app">
             <div className="content">
-                <Header headerOff={headerOff}/>
+                <Header headerOff={headerOff} menu={navigationMenu} onOpenMenu={openNavigationMenu} onClose={close}/>
                 <main>
                     <Route exact path="/">                            
                         <Main/>
@@ -60,13 +69,12 @@ function App() {
                     </Route>
                     <Route path="/signup">
                         <Register/>
-                    </Route>
-                    <Route path="/error">
-                        <Error status={"404"} message={"Страница не найдена"}/>
-                    </Route>                        
+                    </Route>                    
                 </main>
                 <Footer footerOff={footerOff}/>
             </div>
+
+            <Error status={"404"} message={"Страница не найдена"}/>
         </div>
 
     );

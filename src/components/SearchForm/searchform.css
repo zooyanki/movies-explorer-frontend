@@ -8,3 +8,6 @@
 @import url(./__shortblock/searchform__shortblock.css);
 @import url(./__toggle/searchform__toggle.css);
 @import url(./__form/searchform__form.css);
+@import url(./__toggle-text/searchform__toggle-text.css);
+
+@import url(./__shortblock/_320/searchform__shortblock_320.css);

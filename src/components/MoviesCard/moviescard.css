@@ -7,6 +7,22 @@
     width: 360px;
     height: 319px;
     background: rgb(34,34,34,1);
+    border-radius: 6px;
+    box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.08);
+}
+
+@media screen and (min-width: 768px) and (max-width: 1279px) {
+    .moviescard{
+        width: 342px;
+        height: 309px;
+    }
+}
+
+@media screen and (min-width: 320px) and (max-width: 767px) {
+    .moviescard{
+        width: 300px;
+        height: 271px;
+    }
 }
 
 @import url(./__header/moviescard__header.css);

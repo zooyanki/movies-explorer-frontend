@@ -1,8 +1,10 @@
 import React from 'react';
-
-import Logo from '../../images/navtab_logo.svg';
-import accountLogo from '../../images/accaunt_icon.svg';
 import { useLocation } from 'react-router';
+
+import logo from '../../images/navtab_logo.svg';
+
+
+import Navigation from '../Navigation/Navigation';
 
 function Header(props) {
     const location = useLocation();
@@ -12,7 +14,7 @@ function Header(props) {
 
             <div className={`header__block block-width ${location.pathname === '/' ? '' : 'block-off'}`}>
                 <div className="header__leftside">
-                    <img className="header__logo" src={Logo} alt="Navigation Logo"/>
+                    <a className="header__logo" href="/"><img src={logo} alt="Navigation Logo"/></a>
                 </div>
                 <div className="header__rightside">
                     <a className="header__signup" href="/signup">Регистрация</a>
@@ -20,21 +22,8 @@ function Header(props) {
                 </div>
             </div>
  
-            <div className={`header__block block-width ${location.pathname === '/' ? `block-off` : ''}`}>
-                <div className="header__leftside">
-                    <img className="header__logo" src={Logo} alt="Navigation Logo"/>
-                    <div className="header__link-block">
-                        <a className="header__link" href="/movies">Фильмы</a>
-                        <a className="header__link" href="/saved-movies">Сохраненные фильмы</a>
-                    </div>
-                </div>
-                <div className="header__rightside header__rightside_auth">
-                    <a className="header__link" href="/profile" >Аккаунт</a>
-                    <div className="header__account-block">
-                        <img className="header__account-image" src={accountLogo} alt="Account_image"/>
-                    </div>
-                </div>
-            </div>
+            
+            <Navigation menu={props.menu} onOpenMenu={props.onOpenMenu} onClose={props.onClose}/>
 
         </div>
     )

@@ -6,6 +6,7 @@ body {
     height: 100%; 
     margin: 0 auto;
     font-family: 'inter', 'Arial', sans-serif;
+    font-weight: 400;
     font-style: normal;
     -moz-osx-font-smoothing: grayscale;
     -webkit-font-smoothing: antialiased;
@@ -14,15 +15,20 @@ body {
     -moz-text-size-adjust: 100%;
     text-rendering: optimizeLegibility;
 }
+#root {
+    width: 100%;
+}
 
 @import url(./vendor/normalize.css);
 
+@import url(./components/App/app.css);
 @import url(./components/Header/header.css);
 @import url(./components/Main/main.css);
-@import url(./components/Main/AboutProject/aboutproject.css);
-@import url(./components/Main/Techs/techs.css);
-@import url(./components/Main/AboutMe/aboutme.css);
-@import url(./components/Main/Portfolio/portfolio.css);
+@import url(./components/Promo/promo.css);
+@import url(./components/AboutProject/aboutproject.css);
+@import url(./components/Techs/techs.css);
+@import url(./components/AboutMe/aboutme.css);
+@import url(./components/Portfolio/portfolio.css);
 @import url(./components/Movies/movies.css);
 @import url(./components/SearchForm/searchform.css);
 @import url(./components/MoviesCardList/moviescardlist.css);
@@ -30,14 +36,17 @@ body {
 @import url(./components/Footer/footer.css);
 @import url(./components/WithForm/withform.css);
 @import url(./components/Profile/profile.css);
+@import url(./components/Navigation/navigation.css);
 @import url(./components/Error/error.css);
+
 
 @import url(./blocks/block-width/block-width.css);
 @import url(./blocks/block-off/block-off.css);
 @import url(./blocks/common/common.css);
+@import url(./blocks/content/content.css);
 
 /*Мождификаторы */
-@import url(./components/Main/AboutProject/__weeks-text/_white/aboutproject__weeks-text_white.css);
+
 @import url(./components/MoviesCard/__button/_like/moviescard__button_like.css);
 @import url(./components/MoviesCard/__button/_delete/moviescard__button_delete.css);
 @import url(./components/WithForm/__button/_signin/withform__button_signin.css);

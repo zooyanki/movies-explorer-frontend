@@ -1,0 +1,15 @@
+.aboutme__info {
+    margin: 66px 0 0 0;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 2;
+    grid-template-rows: 4;
+}
+
+@media screen and (min-width: 320px) and (max-width: 767px) {
+    .aboutme__info {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+}

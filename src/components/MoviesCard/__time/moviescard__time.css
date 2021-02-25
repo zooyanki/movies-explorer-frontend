@@ -6,3 +6,10 @@
     text-align: right;
     color: rgb(139,139,139,1);
 }
+
+@media screen and (min-width: 320px) and (max-width: 767px) {
+    .moviescard__time{
+        font-size: 10px;
+        line-height: 1.8;
+    }
+}

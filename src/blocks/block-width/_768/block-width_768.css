@@ -1,0 +1,16 @@
+.block-width_768 {
+    margin: 0 auto;
+    width: calc(100% - 140px);
+}
+
+@media screen and (min-width: 768px) and (max-width: 1279px) {
+    .block-width_768{
+        width: calc(100% - 60px);
+    }
+}
+
+@media screen and (min-width: 320px) and (max-width: 767px) {
+    .block-width_768{
+        width: calc(100% - 28px);
+    }
+}
