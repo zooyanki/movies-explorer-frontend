@@ -16,6 +16,11 @@
     background: rgb(66,133,244,0.8);
 }
 
+.withform__button:disabled {
+    background: gray;
+    cursor: not-allowed;
+}
+
 @media screen and (min-width: 320px) and (max-width: 767px) {
     .withform__button{
         font-size: 12px;
