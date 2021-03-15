@@ -1,22 +1,30 @@
-import React from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 
 import searchLogo from '../../images/search_icon.svg'
-import searchToggle from '../../images/search_smalltumb.svg';
 
-function SearchForm() {
+function SearchForm(props) {
+
+    const searchInputRef = useRef('');
+
+    const handleSearchSubmit = (e) => {
+        e.preventDefault();
+
+        props.onSearchMovie(searchInputRef.current.value)
+    }
+
     return (
-        <form className="searchform block-width_768">
+        <form className="searchform block-width_768" onSubmit={handleSearchSubmit}>
             <div className="searchform__form">
                 <img className="searchform__logo" src={searchLogo} alt="magnifying glass"/>
-                <input className="searchform__input" type="text" value="Фильм"/>
-                <button className="searchform__button" type="button">Найти</button>
+                <input className="searchform__input" ref={searchInputRef} type="text" name="search" placeholder="Найти"/>
+                <button className="searchform__button" type="submit">Найти</button>
                 <div className="searchform__shortblock">
-                    <img className="searchform__toggle" src={searchToggle} alt="toggle button" />
+                    <button className={`searchform__toggle ${props.shortFilm.shortFilm ? 'searchform__toggle_on' : ''}`}  type="button" onClick={props.onShortFilmSubmit} alt="toggle button" />
                     <p className="searchform__toggle-text">Короткометражки</p>
                 </div>
             </div>
             <div className="searchform__shortblock_320">
-                <img className="searchform__toggle" src={searchToggle} alt="toggle button" />
+                <button className={`searchform__toggle ${props.shortFilm.shortFilm ? 'searchform__toggle_on' : ''}`} type="button" onClick={props.onShortFilmSubmit} alt="toggle button" />
                 <p className="searchform__toggle-text">Короткометражки</p>
             </div>
         </form>

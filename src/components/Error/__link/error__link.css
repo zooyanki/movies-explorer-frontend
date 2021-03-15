@@ -1,5 +1,7 @@
 .error__link { 
     margin: 184px 0 0 0;
+    background-color: rgb(32,32,32,1);
+    border: none;    
     font-size: 14px;
     line-height: 1.21;
     text-align: center;

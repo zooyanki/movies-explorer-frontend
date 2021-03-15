@@ -93,6 +93,7 @@ const useInput = (initialValue, validations) => {
     const valid = useValidation(value, validations)
     const onChange = (e) => {
         setValue(e.target.value)
+        console.log(e)
     }
 
     const onBlur = (e) => {
@@ -110,3 +111,4 @@ const useInput = (initialValue, validations) => {
 
 
 export default useInput;
+

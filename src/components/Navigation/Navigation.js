@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-import { useLocation } from 'react-router'
+import { useLocation, useHistory } from 'react-router'
 
 import accountLogo from '../../images/accaunt_icon.svg';
 import navButton from '../../images/nav_mob_button.svg';
@@ -8,11 +8,11 @@ import logo from '../../images/navtab_logo.svg';
 
 function Navigation(props){
     const location = useLocation();
-
+    const history = useHistory();
     
 
     return(
-        <div className={`navigation__block block-width_768 ${location.pathname === '/' ? `block-off` : ''}`}>
+        <div className={`navigation__block block-width_768`}>
             <a className="header__logo" href="/"><img src={logo} alt="Navigation Logo"/></a>
             <div className="navigation">
                 <div className="header__leftside">                    

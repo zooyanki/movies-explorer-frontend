@@ -1,3 +1,6 @@
+@import url(./__nomovies/moviecardlist__nomovies.css);
+
+
 .moviescardlist {
     margin-top: 80px;
     display: grid;
