@@ -5,3 +5,9 @@
     color: rgb(139,139,139,1);
     align-self: center;
 }
+
+@media screen and (min-width: 320px) and (max-width: 767px) {
+    .withform__text-reg{
+        font-size: 12px;
+    }
+}

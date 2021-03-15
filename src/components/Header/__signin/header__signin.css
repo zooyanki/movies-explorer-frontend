@@ -16,3 +16,12 @@
 .header__signin:hover {
     background-color: rgb(61,220,132,0.8);
 }
+
+@media screen and (min-width: 320px) and (max-width: 767px) {
+    .header__signin {
+        width: 54px;
+        height: 26px;
+        font-size: 10px;
+        line-height: 26px;
+    }
+}

@@ -10,3 +10,9 @@
 .withform__link:hover {
     color:rgb(66,133,244,0.8);
 }
+
+@media screen and (min-width: 320px) and (max-width: 767px) {
+    .withform__link{
+        font-size: 12px;
+    }
+}

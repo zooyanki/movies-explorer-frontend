@@ -1,8 +1,0 @@
-.aboutme__info {
-    height: 327px;
-    margin: 66px 0 0 0;
-    width: 100%;
-    display: grid;
-    grid-template-columns: 2;
-    grid-template-rows: 4;
-}

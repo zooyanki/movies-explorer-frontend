@@ -14,3 +14,9 @@
 .searchform__button:hover {
     background-color: rgb(66,133,244,0.8);
 }
+
+@media screen and (min-width: 320px) and (max-width: 767px) {
+    .searchform__button{
+        margin-right: 19px;
+    }
+}

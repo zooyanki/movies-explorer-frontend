@@ -1,9 +1,23 @@
 .withform {
     margin: 70px auto 70px;
     width: 396px;
+    height: 100%;
     display: flex;
     flex-direction: column;
     align-items: left;
+}
+
+@media screen and (min-width: 320px) and (max-width: 767px){
+    .withform{
+        margin: 232px auto 232px;
+    }
+}
+
+@media screen and (min-width: 320px) and (max-width: 767px){
+    .withform{
+        margin: 56px auto 30px;
+        width: 260px;
+    }
 }
 
 @import url(../WithForm/__logo/withform__logo.css);
@@ -14,3 +28,5 @@
 @import url(../WithForm/__button/withform__button.css);
 @import url(../WithForm/__text-reg/withform__text-reg.css);
 @import url(../WithForm/__link/withform__link.css);
+
+@import url(../WithForm/__input/_validation/withform__input_validation.css);

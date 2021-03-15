@@ -1,9 +1,18 @@
 .searchform__input {
-    width: 740px;
+    max-width: 740px;
     background:  rgb(47,47,47,1);
     border: none;
     font-size: 18px;
     line-height: 1.11;
     color: #8B8B8B;
     margin-right: 20px;
+}
+
+@media screen and (min-width: 320px) and (max-width: 767px) {
+    .searchform__input{
+        margin-left: 19px;
+        width: 122px;
+        font-size: 14px;
+        line-height: 1.43;
+    }
 }

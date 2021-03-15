@@ -1,7 +1,0 @@
-.aboutproject__time {
-    display: grid;
-    margin: 110px 0 0 0;
-    grid-template-columns: calc(100% / 5) calc(100% * 4 / 5);
-    grid-template-rows: 1fr 1fr;
-    gap: 0;
-}

@@ -5,8 +5,8 @@ import searchToggle from '../../images/search_smalltumb.svg';
 
 function SearchForm() {
     return (
-        <div className="searchform block-width">
-            <form className="searchform__form">
+        <form className="searchform block-width_768">
+            <div className="searchform__form">
                 <img className="searchform__logo" src={searchLogo} alt="magnifying glass"/>
                 <input className="searchform__input" type="text" value="Фильм"/>
                 <button className="searchform__button" type="button">Найти</button>
@@ -14,8 +14,12 @@ function SearchForm() {
                     <img className="searchform__toggle" src={searchToggle} alt="toggle button" />
                     <p className="searchform__toggle-text">Короткометражки</p>
                 </div>
-            </form>
-        </div>
+            </div>
+            <div className="searchform__shortblock_320">
+                <img className="searchform__toggle" src={searchToggle} alt="toggle button" />
+                <p className="searchform__toggle-text">Короткометражки</p>
+            </div>
+        </form>
     )
 }
 export default SearchForm;

@@ -2,3 +2,20 @@
     margin: 0 auto;
     width: calc(100% - 140px);
 }
+
+@media screen and (min-width: 768px) and (max-width: 1279px) {
+    .block-width {
+    width: calc(100% - 100px);
+    }
+}
+
+@media screen and (min-width: 320px) and (max-width: 767px) {
+    .block-width {
+    width: calc(100% - 28px);
+    }
+}
+
+
+
+
+@import url(./_768/block-width_768.css);

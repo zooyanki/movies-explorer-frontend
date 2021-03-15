@@ -1,0 +1,18 @@
+.portfolio__logo {
+    width: 30px;
+    height: 60px;
+}
+
+@media screen and (min-width: 768px) and (max-width: 1279px) {
+    .portfolio__logo {
+        width: 27px;
+        height: 60px;
+    }
+}
+
+@media screen and (min-width: 320px) and (max-width: 767px) {
+    .portfolio__logo {
+        width: 18px;
+        height: 21px;
+    }
+}

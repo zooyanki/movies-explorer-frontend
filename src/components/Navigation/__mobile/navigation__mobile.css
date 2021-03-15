@@ -1,0 +1,9 @@
+.navigation__mobile {
+    display: flex;
+}
+
+@media screen and (min-width: 1280px) {
+    .navigation__mobile {
+        display: none;
+    }
+}
