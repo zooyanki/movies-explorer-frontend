@@ -32,7 +32,7 @@ function Register(props) {
         <WithForm header={`Добро пожаловать!`} linkText={`Войти`} link={`/signin`} textReg={`Уже`}>
             <p className="withform__text">Имя</p>
             <input 
-                className={`withform__input ${!name.isValid && 'withform__input_validation'}`} 
+                className={`withform__input ${name.isValid && 'withform__input_validation'}`} 
                 name="name" 
                 type="text" 
                 defaultValue='' 
@@ -48,7 +48,7 @@ function Register(props) {
 
             <p className="withform__text">Почта</p>
             <input  
-                className={`withform__input ${!email.isValid && 'withform__input_validation'}`} 
+                className={`withform__input ${email.isValid && 'withform__input_validation'}`} 
                 name="email" 
                 type="email" 
                 defaultValue=''
@@ -62,7 +62,7 @@ function Register(props) {
             
             <p className="withform__text">Пароль</p>
             <input 
-                className={`withform__input ${!password.isValid && 'withform__input_validation'}`} 
+                className={`withform__input ${password.isValid && 'withform__input_validation'}`} 
                 name="password" 
                 type="password" 
                 defaultValue=''

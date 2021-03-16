@@ -27,7 +27,7 @@ function Login(props) {
         <WithForm header={`Рады видеть!`} linkText={`Регистрация`} link={`/signup`} textReg={`Ещё не`}>
             <p className="withform__text">Почта</p>
             <input  
-                className={`withform__input ${!email.isValid && 'withform__input_validation'}`} 
+                className={`withform__input ${email.isValid && 'withform__input_validation'}`} 
                 name="email" 
                 type="email" 
                 defaultValue='' 
@@ -41,7 +41,7 @@ function Login(props) {
             
             <p className="withform__text">Пароль</p>
             <input 
-                className={`withform__input ${!password.isValid && 'withform__input_validation'}`} 
+                className={`withform__input ${password.isValid && 'withform__input_validation'}`} 
                 name="password" 
                 type="password" 
                 defaultValue='' 
