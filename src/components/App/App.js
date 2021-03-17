@@ -246,7 +246,9 @@ function App() {
                                 onLogout={onLogout}
                             />
                             
-                            <ProtectedRoute exact path="/" component={Main}/>                            
+                            <Route exact path="/"> 
+                                <Main/> 
+                            </Route>                          
 
                             <Route exact path="/signin">
                                 <Login onLogin={onLogin}/>
