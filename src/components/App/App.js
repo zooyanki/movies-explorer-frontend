@@ -1,5 +1,5 @@
 import React, {useState, useEffect, Suspense} from 'react';
-import {Switch, Route, useLocation, useHistory} from 'react-router-dom';
+import {Redirect, Switch, Route, useHistory, useLocation} from 'react-router-dom';
 
 //Api
 import { moviesApi } from '../../utils/MoviesApi';
@@ -18,16 +18,16 @@ import Error from '../Error/Error';
 import ProtectedRoute from '../ProtectedRoute/ProtectedRoute';
 import SavedMovies from '../SavedMovies/SavedMovies';
 import Preloader from '../Preloader/Preloader';
+import Popup from '../Popup/Popup';
 
 
 function App() {
-    const location = useLocation();
+
     const history = useHistory();
     const [currentUser, setCurrentUser] = useState();    
     const [userName, setUserName] = useState();
     const [userEmail, setUserEmail] = useState();
     const [targetCard, setTargetCard] = useState();
-
     const [savedMoviesCard, setSavedMoviesCard] = useState([]); //UserApi
     const [moviesCard, setMoviesCard] = useState([]); //Beatfilms
     const [foundMovie, setFoundMovie] = useState([]);
@@ -35,10 +35,9 @@ function App() {
     const [navigationMenu, setNavigationMenu] = useState(false);   
     const [loggedIn, setLoggedIn] = useState(false);
     const [errorModal, setErrorModal] = useState(false);
-    
+    const [popupOn, setPopupOn] = useState(false);
     
     useEffect(()=> {
-         
         //Данные пользователя
         if (localStorage.getItem('token')) {
             const token = localStorage.getItem('token');
@@ -58,25 +57,36 @@ function App() {
                 })
         
         //Данные кино-карточек
-        moviesApi.getMoviesCard()
-            .then((item) => {
-            console.log('Жигули')
-            setMoviesCard(item);
-            })
-            .catch((err) => {
-                console.log(err);
-                setErrorModal(err);
-            })
+        if (localStorage.getItem('beatfilms')) {
+            const beatfilmsArray = JSON.parse(localStorage.getItem('beatfilms'));
+            setMoviesCard(beatfilmsArray); 
+        } else {
+            moviesApi.getMoviesCard()
+                .then((beatfilms) => {
+                    setMoviesCard(beatfilms);
+                    localStorage.setItem('beatfilms', JSON.stringify(beatfilms))
+                })
+                .catch((err) => {
+                    console.log(err);
+                    setErrorModal(err);
+                })
+        }
         
         //Сохраненные кино-карточки
-        mainApi.getLikeMovies()
-            .then((movies) => {
-                setSavedMoviesCard(movies)
-        })
-            .catch((err) => {
-                console.log(err);
-                setErrorModal(err);
-            })
+        if (localStorage.getItem('savedfilms')) {
+            const savedfilmsArray = JSON.parse(localStorage.getItem('savedfilms'));
+            setSavedMoviesCard(savedfilmsArray);
+        } else {
+            mainApi.getLikeMovies()
+                .then((savedfilms) => {
+                    setSavedMoviesCard(savedfilms)
+                    localStorage.setItem('savedfilms', JSON.stringify(savedfilms))
+                })
+                .catch((err) => {
+                    console.log(err);
+                    setErrorModal(err);
+                })
+        }
         }       
     },
         [loggedIn, targetCard]
@@ -103,6 +113,7 @@ function App() {
             )
             .then((savedCard) => {
                 setSavedMoviesCard([savedCard, ...savedMoviesCard])
+                localStorage.setItem('savedfilms', JSON.stringify([savedCard, ...savedMoviesCard]))
             })
             .catch((err) => {
                 console.log(err);
@@ -114,9 +125,12 @@ function App() {
     
         mainApi.delLikeMovie(savedCard)
         .then(() => {
-            const newMoviesCards = moviesCard.filter(card => card.id !== savedCard.movieId);
-            setMoviesCard(newMoviesCards);
+            console.log(savedCard)
+            const newMoviesCards = savedMoviesCard.filter(card => card.movieId !== savedCard.movieId);
+            setSavedMoviesCard(newMoviesCards);
+            localStorage.setItem('savedfilms', JSON.stringify(newMoviesCards))
             setTargetCard(savedCard);
+            
         })
         .catch((err) => {
             console.log(err);
@@ -130,12 +144,13 @@ function App() {
         mainApi.signup(userData.name, userData.email, userData.password)
         .then((res) => {
             if (res) {
+                
                 mainApi.signin(userData.email, userData.password)
                 .then((data) => {
                     if (data.token) {
                         setLoggedIn(true);
-                        console.log('НОга')
                         history.push('/movies');
+                        setPopupOn('Вы успешно зарегистрировались')
                     }
                 })
             }
@@ -150,13 +165,13 @@ function App() {
         mainApi.signin(userData.email, userData.password)
         .then((data) => {
                 if (data.token) {
+                    setPopupOn('Вы успешно авторизировались')
                     setLoggedIn(true);
                     history.push('/movies');
             
         } 
         })
         .catch((err)=>{
-            console.log({err});
             setErrorModal(err);
         })
     }
@@ -164,6 +179,8 @@ function App() {
     const onLogout = () => {
         if (localStorage.getItem('token')) {
             localStorage.removeItem('token');
+            localStorage.removeItem('savedfilms');
+            localStorage.removeItem('beatfilms');
             setLoggedIn(false);
             history.push('/signin');
         }
@@ -173,6 +190,7 @@ function App() {
         mainApi.setUserInfo(userData.email, userData.name)
         .then((email, name) => {
             setCurrentUser(email, name);
+            setPopupOn('Данные пользователя изменены')
         })
         .catch((err) =>{
             console.log(err); 
@@ -187,6 +205,7 @@ function App() {
     const close = () => {
         setNavigationMenu(false);
         setErrorModal(false);
+        setPopupOn(false);
     }
 
     return (
@@ -227,9 +246,7 @@ function App() {
                                 onLogout={onLogout}
                             />
                             
-                            <Route exact path="/">                            
-                                <Main/>
-                            </Route>
+                            <ProtectedRoute exact path="/" component={Main}/>                            
 
                             <Route exact path="/signin">
                                 <Login onLogin={onLogin}/>
@@ -237,6 +254,10 @@ function App() {
 
                             <Route exact path="/signup">
                                 <Register onRegister={onRegister}/>
+                            </Route>
+
+                            <Route path="*">
+                                <Error error={{status: 404, statusText: 'Упс... Страница не найдена'}}/>
                             </Route> 
                         </Switch>
                     </main>
@@ -244,6 +265,7 @@ function App() {
                 </div>
                 
                 <Error error={errorModal} onClose={close}/>
+                <Popup popupOn={popupOn} onClose={close}/>
             </div>
         </SavedMoviesContext.Provider>
         </MoviesContext.Provider>

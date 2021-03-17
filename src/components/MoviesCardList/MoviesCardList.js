@@ -6,6 +6,7 @@ function MoviesCardList(props) {
     const savedMoviesCards = useContext(SavedMoviesContext);
     const currentUser = useContext(CurrentUserContext);
 
+    
 
     return (
         <div className="block-width_768">

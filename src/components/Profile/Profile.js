@@ -1,15 +1,15 @@
 import React, { useContext, useState, useEffect } from 'react';
 
-import useInput from '../Validation/Validation';
 import {CurrentUserContext} from '../../contexts/CurrentUserContext';
-import useFormValidation from '../Validation/Validation-Profile';
+import useFormValidation from '../Validation/Validation';
 
 function Profile(props) {
     const currentUser = useContext(CurrentUserContext);
-    console.log(currentUser);
     
     const [userName, setUserName] = useState();
     const [userEmail, setUserEmail] = useState();
+    const [buttonDisableName, setButtonDisableName] = useState(true);
+    const [buttonDisableEmail, setButtonDisableEmail] = useState(true);
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -18,12 +18,7 @@ function Profile(props) {
             email: emailVal.values.email,
             name: nameVal.values.name
         })
-    }
-
-    useEffect(()=> {
-        setUserName(currentUser&&currentUser.name)
-        setUserEmail(currentUser&&currentUser.email)
-    },[currentUser])
+    }   
 
     const submit = (...args) => {
         const event = args[0];
@@ -33,6 +28,33 @@ function Profile(props) {
     
     const nameVal = useFormValidation();
     const emailVal = useFormValidation();
+    
+    useEffect(()=> {
+        setUserName(currentUser&&currentUser.name)
+        setUserEmail(currentUser&&currentUser.email)
+
+    
+        if ((nameVal&&nameVal.values.name) === userName) {
+            setButtonDisableName(true);
+        } else {
+            setButtonDisableName(false)
+        }
+
+        if ((emailVal&&emailVal.values.email) === userEmail) {
+            setButtonDisableEmail(true)
+        } else {
+            setButtonDisableEmail(false)
+        }
+ 
+        console.log(buttonDisableName)
+        console.log(buttonDisableEmail)
+        console.log(`UserContext:${userName}`)
+        console.log(`Name Value:${nameVal.values.name}`)
+
+
+    },[currentUser, emailVal, nameVal])
+
+    
 
     return (
         <form className="profile" onSubmit={submit}>
@@ -64,8 +86,19 @@ function Profile(props) {
             </div>
             <p className={`profile__validation ${emailVal.isValid ? 'profile__validation_off' : ''}`}>{emailVal.errors.email}</p>
 
-            <button className="profile__button" type="submit" onClick={handleSubmit}>Редактировать</button>
-            <button className="profile__button" type="button" onClick={props.onLogout}>Выйти из аккаунта</button>
+            <button 
+                className="profile__button" 
+                type="submit" 
+                onClick={handleSubmit} 
+                disabled={buttonDisableName && buttonDisableEmail}
+            >Редактировать
+            </button>
+
+            <button 
+                className="profile__button" 
+                type="button" 
+                onClick={props.onLogout}
+            >Выйти из аккаунта</button>
         </form>
     )
 }

@@ -1,7 +1,6 @@
 import React from 'react';
 
-import useInput from '../Validation/Validation'
-import useFormValidation from '../Validation/Validation-Profile';
+import useFormValidation from '../Validation/Validation';
 
 
 import WithForm from '../WithForm/WithForm';
@@ -32,7 +31,7 @@ function Register(props) {
         <WithForm header={`Добро пожаловать!`} linkText={`Войти`} link={`/signin`} textReg={`Уже`}>
             <p className="withform__text">Имя</p>
             <input 
-                className={`withform__input ${name.isValid && 'withform__input_validation'}`} 
+                className={`withform__input ${!name.isValid && 'withform__input_validation'}`} 
                 name="name" 
                 type="text" 
                 defaultValue='' 
@@ -43,12 +42,12 @@ function Register(props) {
                 required
             />
             <div className="withform__validation-block">
-                {!name.isValid && <p className="withform__validation">{name.errors.name}</p>}
+                {name.isValid && <p className="withform__validation">{name.errors.name}</p>}
             </div>
 
             <p className="withform__text">Почта</p>
             <input  
-                className={`withform__input ${email.isValid && 'withform__input_validation'}`} 
+                className={`withform__input ${!email.isValid && 'withform__input_validation'}`} 
                 name="email" 
                 type="email" 
                 defaultValue=''
@@ -62,7 +61,7 @@ function Register(props) {
             
             <p className="withform__text">Пароль</p>
             <input 
-                className={`withform__input ${password.isValid && 'withform__input_validation'}`} 
+                className={`withform__input ${!password.isValid && 'withform__input_validation'}`} 
                 name="password" 
                 type="password" 
                 defaultValue=''
@@ -72,7 +71,7 @@ function Register(props) {
                 required
             />
             <div className="withform__validation-block">
-                {!password.isValid && <p className="withform__validation">{password.errors.password}</p>}
+                {password.isValid && <p className="withform__validation">{password.errors.password}</p>}
             </div>
 
             <button 

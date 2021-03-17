@@ -7,7 +7,6 @@ function SavedMovies(props) {
 
 //--------------------Вкл/выкл короткометражек--------------//
     const [shortFilm, setShortFilm] = useState(false);
-    console.log(shortFilm)
 
     const handleShortFIlmSubmit = (e) => {
         e.preventDefault();

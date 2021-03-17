@@ -63,7 +63,6 @@ function Movies(props) {
             }
         }
     }).slice(0, baseCards + addCards);
-    console.log(cards.length,(baseCards+addCards) > cards.length);
     return (
         <>  
             <SearchForm 

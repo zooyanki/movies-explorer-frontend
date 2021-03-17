@@ -2,7 +2,7 @@ import React from 'react';
 import { useLocation, withRouter } from 'react-router';
 
 import WithForm from '../WithForm/WithForm';
-import useFormValidation from '../Validation/Validation-Profile';
+import useFormValidation from '../Validation/Validation';
 
 
 function Login(props) {
@@ -21,13 +21,16 @@ function Login(props) {
             email: email.values.email,
             password: password.values.password
         })
+
+        email.resetForm();
+        password.resetForm();
     }
 
     return(
         <WithForm header={`Рады видеть!`} linkText={`Регистрация`} link={`/signup`} textReg={`Ещё не`}>
             <p className="withform__text">Почта</p>
             <input  
-                className={`withform__input ${email.isValid && 'withform__input_validation'}`} 
+                className={`withform__input ${!email.isValid && 'withform__input_validation'}`} 
                 name="email" 
                 type="email" 
                 defaultValue='' 
@@ -41,7 +44,7 @@ function Login(props) {
             
             <p className="withform__text">Пароль</p>
             <input 
-                className={`withform__input ${password.isValid && 'withform__input_validation'}`} 
+                className={`withform__input ${!password.isValid && 'withform__input_validation'}`} 
                 name="password" 
                 type="password" 
                 defaultValue='' 

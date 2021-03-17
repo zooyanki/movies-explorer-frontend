@@ -6,18 +6,17 @@ import { useLocation } from 'react-router';
 
 function MoviesCard(props) {
     const savedMoviesCards = useContext(SavedMoviesContext);
-    const moviesCards = useContext(MoviesContext);
     const currentUser = useContext(CurrentUserContext);
 
     const location = useLocation();
 
     const [savedCard, setSavedCard] = useState();
 
-    const isOwn = props.card.owner === currentUser&&currentUser._id;
+    const isOwn = props.card.owner === (currentUser&&currentUser._id);
 
     useEffect(() => {
         savedMoviesCards.forEach((item) => {
-            if (item.owner === currentUser._id){
+            if (item.owner === (currentUser&&currentUser._id)){
                 if (item.movieId === String(props.card.id)) {
                     setSavedCard(item)
                 } 

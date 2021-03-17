@@ -2,9 +2,6 @@ import React, { useEffect, useState } from 'react';
 
 
 import logo from '../../images/navtab_logo.svg'
-import { useLocation } from 'react-router';
-
-import useInput from '../Validation/Validation';
    
 function WithForm(props) {
     return (

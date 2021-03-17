@@ -51,7 +51,7 @@ export default class MainApi {
         })
     }
 
-    delLikeMovie(savedCard, user) {
+    delLikeMovie(savedCard) {
         return this._fetch(`/movies/${savedCard._id}`, {
             method: 'DELETE',
             body: JSON.stringify({
@@ -88,7 +88,6 @@ export default class MainApi {
         })
         .then((data) => {
             if (data.token) {
-                console.log('рука')
                 localStorage.setItem('token', data.token);
                 return data;
             }
