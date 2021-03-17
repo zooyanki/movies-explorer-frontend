@@ -34,13 +34,13 @@ function Profile(props) {
         setUserEmail(currentUser&&currentUser.email)
 
     
-        if ((nameVal&&nameVal.values.name) === userName) {
+        if (((nameVal&&nameVal.values.name) === userName)|| ((nameVal&&nameVal.values.name) === undefined)) {
             setButtonDisableName(true);
         } else {
             setButtonDisableName(false)
         }
 
-        if ((emailVal&&emailVal.values.email) === userEmail) {
+        if (((emailVal&&emailVal.values.email) === userEmail)||((emailVal&&emailVal.values.email) === undefined)){
             setButtonDisableEmail(true)
         } else {
             setButtonDisableEmail(false)
