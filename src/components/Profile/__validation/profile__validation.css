@@ -1,0 +1,9 @@
+.profile__validation {
+    width: 100%;
+    height: 6px;
+    margin: 0;
+    font-size: 10px;
+    line-height: 1.2;
+    color: rgb(238,52,101,1);
+    text-align: right;
+}

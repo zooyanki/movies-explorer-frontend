@@ -1,13 +1,16 @@
 .searchform__toggle {
+    background-image: url(../../../images/search_smalltum_off.svg);
     width: 36px;
     height: 20px;
     margin-left: 30px;
     margin-right: 15px;
     cursor: pointer;
+    border: none;
+    background-color: rgb(47,47,47,1);
 }
 
 @media screen and (min-width: 320px) and (max-width: 767px) {
     .searchform__toggle{
-        margin: 0 0 0 72px;
+        margin: 0 0 0 0;
     }
 }

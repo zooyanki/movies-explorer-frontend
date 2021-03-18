@@ -19,3 +19,5 @@
 @import url(./__text/profile__text.css);
 @import url(./__input/profile__input.css);
 @import url(./__button/profile__button.css);
+@import url(./__validation/profile__validation.css);
+@import url(./__validation/_off/profile__validation_off.css);
