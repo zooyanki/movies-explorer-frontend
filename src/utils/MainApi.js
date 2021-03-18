@@ -107,7 +107,7 @@ export default class MainApi {
 }
 
 export const mainApi = new MainApi({
-    baseUrl: 'https://api.okino.students.nomoredomains.rocks',
+    baseUrl: 'https://api.zooyankifilm.students.nomoredomains.rocks',
     headers: {
         'Content-Type':'application/json',
         'authorization': 'Bearer '+ window.localStorage.getItem('token')
