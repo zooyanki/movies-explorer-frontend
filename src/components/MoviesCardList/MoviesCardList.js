@@ -1,10 +1,13 @@
 import React, {useContext, useEffect, useState} from 'react';
 import MoviesCard from '../MoviesCard/MoviesCard';
 import {SavedMoviesContext, CurrentUserContext} from '../../contexts/CurrentUserContext';
+import { useLocation } from 'react-router';
 
 function MoviesCardList(props) {
     const savedMoviesCards = useContext(SavedMoviesContext);
     const currentUser = useContext(CurrentUserContext);
+
+    const location = useLocation();
 
     const userSavedCards = savedMoviesCards.filter((item) => {
         if (currentUser&&currentUser._id === item.owner) {
@@ -35,7 +38,7 @@ function MoviesCardList(props) {
                 })}
                 {props.cards.length === 0 && <div className="moviecardlist__nomovies">Упс... А фильма такого нет</div> 
                 ||
-                userSavedCards.length === 0 && <div className="moviecardlist__nomovies">У вас нет сохраненных фильмов</div>}
+                (location.pathname === '/saved-movies' && userSavedCards.length === 0) && <div className="moviecardlist__nomovies">У вас нет сохраненных фильмов</div>}
             </div>
         </div>
     )
