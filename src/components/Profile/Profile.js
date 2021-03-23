@@ -10,13 +10,15 @@ function Profile(props) {
     const [userEmail, setUserEmail] = useState();
     const [buttonDisableName, setButtonDisableName] = useState(true);
     const [buttonDisableEmail, setButtonDisableEmail] = useState(true);
-
+    const [sendName, setSendName] = useState();
+    const [sendEmail, setSendEmail] = useState();
+    
     const handleSubmit = (e) => {
         e.preventDefault();
 
         props.onUpdateUser({
-            email: emailVal.values.email,
-            name: nameVal.values.name
+            email: sendEmail,
+            name: sendName
         })
     }   
 
@@ -34,24 +36,21 @@ function Profile(props) {
         setUserEmail(currentUser&&currentUser.email)
 
     
-        if (((nameVal&&nameVal.values.name) === userName)|| ((nameVal&&nameVal.values.name) === undefined)) {
+        if (((nameVal&&nameVal.values.name) === userName) || ((nameVal&&nameVal.values.name) === undefined)) {
             setButtonDisableName(true);
+            setSendName(nameVal.values.name)
         } else {
             setButtonDisableName(false)
+            setSendName(userName)
         }
 
-        if (((emailVal&&emailVal.values.email) === userEmail)||((emailVal&&emailVal.values.email) === undefined)){
-            setButtonDisableEmail(true)
+        if (((emailVal&&emailVal.values.email) === userEmail) || ((emailVal&&emailVal.values.email) === undefined)){
+            setButtonDisableEmail(true);
+            setSendEmail(emailVal.values.email)
         } else {
             setButtonDisableEmail(false)
+            setSendEmail(userEmail)
         }
- 
-        console.log(buttonDisableName)
-        console.log(buttonDisableEmail)
-        console.log(`UserContext:${userName}`)
-        console.log(`Name Value:${nameVal.values.name}`)
-
-
     },[currentUser, emailVal, nameVal])
 
     

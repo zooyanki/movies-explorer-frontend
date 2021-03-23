@@ -15,6 +15,26 @@ function SavedMovies(props) {
         }))
     }
 
+    const cards = props.cards.filter((card) => {
+        if (shortFilm.shortFilm) {
+            if (card.duration < 40) {
+                if (props.foundMovie === '') {
+                    return card
+                } else {
+                    return card.nameRU.indexOf(props.foundMovie) > -1
+                }    
+            }
+        } else {
+            if (props.foundMovie === '') {
+                return card
+            } else {
+                return card.nameRU.indexOf(props.foundMovie) > -1
+            }                        
+        }
+    })
+
+    console.log(cards);
+
     return (
         <>
             <SearchForm 
@@ -25,23 +45,7 @@ function SavedMovies(props) {
             />
             <MoviesCardList 
                 buttonModificator={props.buttonModificator} 
-                cards={props.cards.filter((card) => {
-                    if (shortFilm.shortFilm) {
-                        if (card.duration < 40) {
-                            if (props.foundMovie === '') {
-                                return card
-                            } else {
-                                return card.nameRU.indexOf(props.foundMovie) > -1
-                            }    
-                        }
-                    } else {
-                        if (props.foundMovie === '') {
-                            return card
-                        } else {
-                            return card.nameRU.indexOf(props.foundMovie) > -1
-                        }                        
-                    }
-                })} 
+                cards={cards} 
                 onDelLikeCard={props.onDelLikeCard}
             />
         </>

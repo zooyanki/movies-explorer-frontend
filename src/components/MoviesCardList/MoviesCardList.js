@@ -6,7 +6,11 @@ function MoviesCardList(props) {
     const savedMoviesCards = useContext(SavedMoviesContext);
     const currentUser = useContext(CurrentUserContext);
 
-    
+    const userSavedCards = savedMoviesCards.filter((item) => {
+        if (currentUser&&currentUser._id === item.owner) {
+            return item
+        }
+    })
 
     return (
         <div className="block-width_768">
@@ -29,7 +33,9 @@ function MoviesCardList(props) {
                         isFavorite={isFavorite}
                     />
                 })}
-                {props.cards.length === 0 && <div className="moviecardlist__nomovies">Упс... А фильма такого нет</div>}
+                {props.cards.length === 0 && <div className="moviecardlist__nomovies">Упс... А фильма такого нет</div> 
+                ||
+                userSavedCards.length === 0 && <div className="moviecardlist__nomovies">У вас нет сохраненных фильмов</div>}
             </div>
         </div>
     )
